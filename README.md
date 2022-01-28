@@ -2,4 +2,13 @@
 
 This is a Java library that provides an XQuery function to generate QR codes in SVG, for eXist-db.
 
-At the moment, it generates a xar-file, but eXist does not seem to want to deploy it. :(
+This is an early version, which will be expanded in the near future.
+
+# Usage
+
+```
+xquery version "3.1";
+declare namespace svg-qr="http://rakensi.com/svg-qr";
+
+svg-qr:create-for("hello world")
+```

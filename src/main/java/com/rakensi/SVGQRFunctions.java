@@ -79,7 +79,7 @@ public class SVGQRFunctions extends BasicFunction {
   static final FunctionSignature FS_CREATE_FOR = functionSignature(
           FS_CREATE_FOR_NAME,
           "A function to create a QR code for some text (e.g., a URL) as SVG.",
-          returns(Type.ELEMENT),
+          returns(Type.DOCUMENT),
           optParam("qrText", Type.STRING, "A text to convvert to a QR code")
   );
 
@@ -109,7 +109,7 @@ public class SVGQRFunctions extends BasicFunction {
         }
     }
 
-    private DocumentImpl createFor(final Optional<StringValue> qrText) throws XPathException {
+    public DocumentImpl createFor(final Optional<StringValue> qrText) throws XPathException {
         try {
             final MemTreeBuilder builder = new MemTreeBuilder(context);
             parseString(builder, createQrSvg(qrText.map(StringValue::toString).orElse("")));

@@ -13,7 +13,7 @@
 
     <groupId>com.rakensi</groupId>
     <artifactId>svg-qr</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <name>SVG QR codes for eXist</name>
     <description>QR codes as SVG for eXist-db</description>

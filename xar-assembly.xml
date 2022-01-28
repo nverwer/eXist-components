@@ -21,11 +21,6 @@
     <!-- Collection inside /db/apps where xar-resources will be copied to -->
     <target>${package-abbrev}</target>
 
-<!--
-    <prepare>pre-install.xq</prepare>
-    <finish>post-install.xq</finish>
--->
-
     <!-- includes everything in src/main/xar-resources, README.md, and LICENSE -->
     <fileSets>
         <fileSet>
@@ -35,24 +30,7 @@
                 <include>LICENSE</include>
             </includes>
         </fileSet>
-<!--
-        <fileSet>
-            <directory>${basedir}/src/main/xar-resources</directory>
-        </fileSet>
--->
      </fileSets>
-
-    <!-- include the XQuery Library modules written in XQuery from this project -->
-    <!--xquerySets>
-        <xquerySet>
-            <namespace>https://my-organisation.com/exist-db/ns/app/my-xquery-module</namespace>
-            <directory>${basedir}/src/main/xquery</directory>
-            <includes>
-                <include>example-module.xqm</include>
-            </includes>
-            <outputDirectory>content</outputDirectory>
-        </xquerySet>
-    </xquerySets-->
 
     <!-- include the XQuery Library Module written in Java (JAR output) from this project -->
     <dependencySets>
