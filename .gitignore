@@ -1,0 +1,8 @@
+target/
+src/main/xar-resources
+src/main/xquery
+
+*.iml
+.idea/
+
+README - original.md
