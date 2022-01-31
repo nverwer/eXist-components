@@ -15,8 +15,6 @@ import org.exist.xquery.value.FunctionParameterSequenceType;
 import org.exist.xquery.value.FunctionReturnSequenceType;
 
 /**
- * A very simple example XQuery Library Module implemented
- * in Java.
  */
 public class SVGQRModule extends AbstractInternalModule {
 

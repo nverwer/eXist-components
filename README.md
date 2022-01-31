@@ -8,7 +8,7 @@ This is an early version, which will be expanded in the near future.
 
 ```
 xquery version "3.1";
-declare namespace svg-qr="http://rakensi.com/svg-qr";
+import module namespace svg-qr="http://rakensi.com/svg-qr";
 
 svg-qr:create-for("hello world")
 ```

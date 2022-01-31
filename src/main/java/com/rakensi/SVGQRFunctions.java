@@ -40,7 +40,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 /**
- * A function to make QR codes in SVG.
+ * A class for making QR codes in SVG.
  *
  * Created using
  * - https://github.com/eXist-db/exist-apps-archetype
@@ -48,39 +48,12 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
  */
 public class SVGQRFunctions extends BasicFunction {
 
-/*
-    private static final String FS_HELLO_WORLD_NAME = "hello-world";
-    static final FunctionSignature FS_HELLO_WORLD = functionSignature(
-        FS_HELLO_WORLD_NAME,
-        "An example function that returns <hello>world</hello>.",
-        returns(Type.DOCUMENT),
-        null
-    );
-
-    private static final String FS_SAY_HELLO_NAME = "say-hello";
-    static final FunctionSignature FS_SAY_HELLO = functionSignature(
-            FS_SAY_HELLO_NAME,
-            "An example function that returns <hello>{$name}</hello>.",
-            returns(Type.DOCUMENT),
-            optParam("name", Type.STRING, "A name")
-    );
-
-    private static final String FS_ADD_NAME = "add";
-    static final FunctionSignature FS_ADD = functionSignature(
-            FS_ADD_NAME,
-            "An example function that adds two numbers together.",
-            returns(Type.INT),
-            param("a", Type.INT, "A number"),
-            param("b", Type.INT, "A number")
-    );
-*/
-
   private static final String FS_CREATE_FOR_NAME = "create-for";
   static final FunctionSignature FS_CREATE_FOR = functionSignature(
           FS_CREATE_FOR_NAME,
           "A function to create a QR code for some text (e.g., a URL) as SVG.",
           returns(Type.DOCUMENT),
-          optParam("qrText", Type.STRING, "A text to convvert to a QR code")
+          optParam("qrText", Type.STRING, "A text that is converted to a QR code")
   );
 
 
@@ -91,19 +64,9 @@ public class SVGQRFunctions extends BasicFunction {
     @Override
     public Sequence eval(final Sequence[] args, final Sequence contextSequence) throws XPathException {
         switch (getName().getLocalPart()) {
-
             case FS_CREATE_FOR_NAME:
-                return createFor(Optional.of(new StringValue("")));
-/*
-            case FS_SAY_HELLO_NAME:
-                final Optional<StringValue> name = args[0].isEmpty() ? Optional.empty() : Optional.of((StringValue)args[0].itemAt(0));
-                return sayHello(name);
-
-            case FS_ADD_NAME:
-                final IntegerValue a = (IntegerValue) args[0].itemAt(0);
-                final IntegerValue b = (IntegerValue) args[1].itemAt(0);
-                return add(a, b);
-*/
+                final Optional<StringValue> qrText = args[0].isEmpty() ? Optional.empty() : Optional.of((StringValue)args[0].itemAt(0));
+                return createFor(qrText);
             default:
                 throw new XPathException(ErrorCodes.XPST0017, "No function: " + getName() + "#" + getSignature().getArgumentCount());
         }
@@ -113,13 +76,6 @@ public class SVGQRFunctions extends BasicFunction {
         try {
             final MemTreeBuilder builder = new MemTreeBuilder(context);
             parseString(builder, createQrSvg(qrText.map(StringValue::toString).orElse("")));
-            /*
-            builder.startDocument();
-            builder.startElement(new QName("hello"), null);
-            builder.characters(name.map(StringValue::toString).orElse("stranger"));
-            builder.endElement();
-            builder.endDocument();
-            */
             return builder.getDocument();
         } catch (final Exception e) {
             throw new XPathException(ErrorCodes.ERROR, e.getMessage(), e);
@@ -160,16 +116,4 @@ public class SVGQRFunctions extends BasicFunction {
       reader.parse(new InputSource(new StringReader(xml)));
     }
 
-    /**
-     * Adds two numbers together.
-     *
-     * @param a The first number
-     * @param b The second number
-     *
-     * @return The result;
-    private IntegerValue add(final IntegerValue a, final IntegerValue b) throws XPathException {
-        final int result = a.getInt() + b.getInt();
-        return new IntegerValue(result);
-    }
-     */
 }
