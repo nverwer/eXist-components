@@ -25,7 +25,7 @@ public class SVGQRModule extends AbstractInternalModule {
     // register the functions of the module
     public static final FunctionDef[] functions = functionDefs(
         functionDefs(SVGQRFunctions.class,
-                SVGQRFunctions.FS_CREATE_FOR
+                SVGQRFunctions.FS_GENERATE
         )
     );
 

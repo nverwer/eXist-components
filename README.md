@@ -1,10 +1,10 @@
 # XQuery library to create QR codes
 
-This is a Java library that provides an XQuery function to generate QR codes in SVG, for eXist-db.
+This is a failed attempt to make a Java library that provides an XQuery function to generate QR codes in SVG, for eXist-db.
 
-This is an early version, which will be expanded in the near future.
+I could not get this working, which is partly because I /don't know enough about|hate/ maven.
 
-# Usage
+# Usage, if it would work
 
 ```
 xquery version "3.1";

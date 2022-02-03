@@ -48,9 +48,9 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
  */
 public class SVGQRFunctions extends BasicFunction {
 
-  private static final String FS_CREATE_FOR_NAME = "create-for";
-  static final FunctionSignature FS_CREATE_FOR = functionSignature(
-          FS_CREATE_FOR_NAME,
+  private static final String FS_GENERATE_NAME = "create-for";
+  static final FunctionSignature FS_GENERATE = functionSignature(
+          FS_GENERATE_NAME,
           "A function to create a QR code for some text (e.g., a URL) as SVG.",
           returns(Type.DOCUMENT),
           optParam("qrText", Type.STRING, "A text that is converted to a QR code")
@@ -64,15 +64,15 @@ public class SVGQRFunctions extends BasicFunction {
     @Override
     public Sequence eval(final Sequence[] args, final Sequence contextSequence) throws XPathException {
         switch (getName().getLocalPart()) {
-            case FS_CREATE_FOR_NAME:
+            case FS_GENERATE_NAME:
                 final Optional<StringValue> qrText = args[0].isEmpty() ? Optional.empty() : Optional.of((StringValue)args[0].itemAt(0));
-                return createFor(qrText);
+                return generate(qrText);
             default:
                 throw new XPathException(ErrorCodes.XPST0017, "No function: " + getName() + "#" + getSignature().getArgumentCount());
         }
     }
 
-    public DocumentImpl createFor(final Optional<StringValue> qrText) throws XPathException {
+    public DocumentImpl generate(final Optional<StringValue> qrText) throws XPathException {
         try {
             final MemTreeBuilder builder = new MemTreeBuilder(context);
             parseString(builder, createQrSvg(qrText.map(StringValue::toString).orElse("")));
