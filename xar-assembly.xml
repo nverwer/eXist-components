@@ -39,6 +39,16 @@
             <artifactId>${project.artifactId}</artifactId>
             <version>${project.version}</version>
         </dependencySet>
+        <dependencySet>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreesvg</artifactId>
+            <version>${jfreesvg.version}</version>
+        </dependencySet>
+        <dependencySet>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>${zxing.version}</version>
+        </dependencySet>
     </dependencySets>
 
     <!-- register the Java module to eXist-db -->

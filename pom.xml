@@ -48,13 +48,16 @@
         <project.build.source>1.8</project.build.source>
         <project.build.target>1.8</project.build.target>
 
-        <exist.version>5.0.0</exist.version>
+        <exist.version>6.0.1</exist.version>
+        <zxing.version>3.4.0</zxing.version>
+        <jfreesvg.version>3.4</jfreesvg.version>
 
         <!-- used in the EXPath Package Descriptor -->
         <package-name>http://rakensi.com/svg-qr</package-name>
 
         <svgqr.module.namespace>http://rakensi.com/svg-qr</svgqr.module.namespace>
         <svgqr.module.java.classname>SVGQRModule</svgqr.module.java.classname>
+
     </properties>
 
     <dependencies>
@@ -80,14 +83,14 @@
     <dependency>
       <groupId>com.google.zxing</groupId>
       <artifactId>core</artifactId>
-      <version>3.4.0</version>
+      <version>${zxing.version}</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.jfree/jfreesvg -->
     <dependency>
       <groupId>org.jfree</groupId>
       <artifactId>jfreesvg</artifactId>
-      <version>3.4</version>
+      <version>${jfreesvg.version}</version>
     </dependency>
 
     </dependencies>
