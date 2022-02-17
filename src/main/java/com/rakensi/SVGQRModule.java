@@ -20,13 +20,12 @@ public class SVGQRModule extends AbstractInternalModule {
 
     public static final String NAMESPACE_URI = "http://rakensi.com/svg-qr";
     public static final String PREFIX = "svg-qr";
-    public static final String RELEASED_IN_VERSION = "eXist-5.3.1";
+    public static final String RELEASED_IN_VERSION = "eXist-6.0.1";
 
     // register the functions of the module
     public static final FunctionDef[] functions = functionDefs(
-        functionDefs(SVGQRFunctions.class,
-                SVGQRFunctions.FS_GENERATE
-        )
+        functionDefs(SVGQRFunctions.class, SVGQRFunctions.FS_GENERATE),
+        functionDefs(SVGQRFunctions.class, SVGQRFunctions.FS_GENERATE_TEXT)
     );
 
     public SVGQRModule(final Map<String, List<? extends Object>> parameters) {

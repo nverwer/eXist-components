@@ -10,5 +10,11 @@ I could not get this working, which is partly because I /don't know enough about
 xquery version "3.1";
 import module namespace svg-qr="http://rakensi.com/svg-qr";
 
-svg-qr:create-for("hello world")
+<html>
+    <body>
+        <div style="width:200px;">{ svg-qr:generate-qr-svg("hello world") }</div>
+        <br/>
+        <div style="width:200px;">{ svg-qr:generate-qr-text-svg("hello world", "example") }</div>
+    </body>
+</html>
 ```

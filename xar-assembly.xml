@@ -30,7 +30,7 @@
                 <include>LICENSE</include>
             </includes>
         </fileSet>
-     </fileSets>
+    </fileSets>
 
     <!-- include the XQuery Library Module written in Java (JAR output) from this project -->
     <dependencySets>

@@ -14,6 +14,6 @@ function m:testDummy() as xs:int {
 
 declare
     %test:assertEquals(10)
-function m:createFor() as xs:int {
-    svg-qr:create-for("hello world")
+function m:test-generate-qr-svg() as xs:int {
+    svg-qr:generate-qr-svg("hello world")
 };
