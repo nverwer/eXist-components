@@ -7,6 +7,16 @@ declare namespace test="http://exist-db.org/xquery/xqsuite";
 import module namespace svg-qr="http://rakensi.com/svg-qr" at "java:com.rakensi.SVGQRModule";
 
 declare
+    %test:setUp
+function m:setup() {
+};
+
+declare
+    %test:tearDown
+function m:cleanup() {
+};
+
+declare
     %test:assertEquals(10)
 function m:testDummy() as xs:int {
     10
