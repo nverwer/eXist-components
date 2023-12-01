@@ -19,7 +19,8 @@
     <dependency processor="http://exist-db.org" semver-min="${exist.version}" />
 
     <!-- Collection inside /db/apps where xar-resources will be copied to -->
-    <target>${package-abbrev}</target>
+    <!-- See issue #2: This makes the resulting XAR a resource-package instead of a pure library. -->
+    <!-- <target>${package-abbrev}</target> -->
 
     <!-- includes everything in src/main/xar-resources, README.md, and LICENSE -->
     <fileSets>

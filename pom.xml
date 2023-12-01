@@ -12,11 +12,11 @@
     </parent>
 
     <groupId>com.rakensi</groupId>
-    <artifactId>svg-qr</artifactId>
-    <version>1.0.2</version>
+    <artifactId>jb-exist-components</artifactId>
+    <version>1.0.3</version>
 
-    <name>SVG QR codes for eXist</name>
-    <description>QR codes as SVG for eXist-db</description>
+    <name>Extensions for eXist</name>
+    <description>Some extensions for eXist-db</description>
     <url></url>
 
     <organization>
