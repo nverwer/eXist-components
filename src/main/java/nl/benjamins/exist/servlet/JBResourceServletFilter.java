@@ -324,6 +324,7 @@ public class JBResourceServletFilter implements Filter
     String mimeType = getMimeType(urlPath, file);
     HttpContent content = new ResourceHttpContent(resource, mimeType);
     Response.putHeaders(response, content, Response.USE_KNOWN_CONTENT_LENGTH, true);
+    response.setDateHeader("Last-Modified", file.lastModified());
     try (OutputStream out = response.getOutputStream())
     {
       Files.copy(file.toPath(), out);
