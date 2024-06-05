@@ -88,27 +88,51 @@ For example:
 The Logger/@name is what has been specified in the loggerName init-param.
 
 
-# XQuery library to create QR codes
+# XQuery function library
 
-This is a Java library that provides a XQuery functions to generate QR codes in SVG, for eXist-db.
+This is a Java library that provides XQuery functions for eXist-db.
 
 ## Usage
 
 Install the module into eXist.
 
+## Functions to generate QR codes in SVG
+
+
 ```
 xquery version "3.1";
-import module namespace svg-qr="http://rakensi.com/svg-qr";
+import module namespace rxf = "http://rakensi.com/exist-db/xquery/functions";
 
 <html>
     <body>
-        <div style="width:200px;">{ svg-qr:generate-qr-svg("hello world") }</div>
+        <div style="width:200px;">{ rxf:generate-qr-svg("hello world") }</div>
         <br/>
-        <div style="width:200px;">{ svg-qr:generate-qr-text-svg("hello world", "example") }</div>
+        <div style="width:200px;">{ rxf:generate-qr-text-svg("hello world", "example") }</div>
     </body>
 </html>
 ```
+## Invisible XML
+
+In XQuery 4, there will be a [fn:invisible-xml](https://qt4cg.org/specifications/xpath-functions-40/Overview.html#ixml-functions) function.
+At XML Prague 2024, it was shown how to implement this in eXist-db.
+Until it is part of eXist, you can use it as follows:
+```
+xquery version "3.1";
+
+import module namespace rxf = "http://rakensi.com/exist-db/xquery/functions";
+
+let $grammar := ``[
+ date = year, -'-', month, -'-', day .
+ year = d, d, d, d .
+month = '0', d | '1', ['0'|'1'|'2'] .
+  day = ['0'|'1'|'2'], d | '3', ['0'|'1'] .
+   -d = ['0'-'9'] .
+]``
+let $ixml-parse := rxf:invisible-xml($grammar, map{})
+return $ixml-parse('2023-10-31')
+```
+
 ## To do
 
 * There is an icon in the xar-resources, but I don't know how to put it into the xar-file.
-* When re-installing the module into eXist, the older versions remain, and I cannot uninstall them from eXist.
+

@@ -1,10 +1,10 @@
 xquery version "3.1";
 
-module namespace m="http://rakensi.com/svg-qr";
+module namespace m="http://rakensi.com";
 
 declare namespace test="http://exist-db.org/xquery/xqsuite";
 
-import module namespace svg-qr="http://rakensi.com/svg-qr" at "java:com.rakensi.SVGQRModule";
+import module namespace rxf = "http://rakensi.com/exist-db/xquery/functions";
 
 declare
     %test:setUp
@@ -25,5 +25,5 @@ function m:testDummy() as xs:int {
 declare
     %test:assertEquals(10)
 function m:test-generate-qr-svg() as xs:int {
-    svg-qr:generate-qr-svg("hello world")
+    rxf:generate-qr-svg("hello world")
 };

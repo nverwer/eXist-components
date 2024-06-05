@@ -1,6 +1,6 @@
 package com.rakensi;
 
-import static com.rakensi.SVGQRModule.functionSignature;
+import static com.rakensi.ExtensionFunctionsModule.functionSignature;
 import static org.exist.xquery.FunctionDSL.optParam;
 import static org.exist.xquery.FunctionDSL.param;
 import static org.exist.xquery.FunctionDSL.returns;
