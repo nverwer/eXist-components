@@ -94,10 +94,10 @@ This is a Java library that provides XQuery functions for eXist-db.
 
 ## Usage
 
-Install the module into eXist.
+Do `maven install`. This will create a .xar file in the `target` directory.
+Install the .xar file into eXist, using the package manager.
 
 ## Functions to generate QR codes in SVG
-
 
 ```
 xquery version "3.1";
@@ -131,8 +131,3 @@ month = '0', d | '1', ['0'|'1'|'2'] .
 let $ixml-parse := rxf:invisible-xml($grammar, map{})
 return $ixml-parse('2023-10-31')
 ```
-
-## To do
-
-* There is an icon in the xar-resources, but I don't know how to put it into the xar-file.
-

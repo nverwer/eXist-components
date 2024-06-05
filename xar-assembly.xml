@@ -31,6 +31,9 @@
                 <include>LICENSE</include>
             </includes>
         </fileSet>
+        <fileSet>
+            <directory>${basedir}/src/main/xar-resources</directory>
+        </fileSet>
     </fileSets>
 
     <!-- include the XQuery Library Module written in Java (JAR output) from this project -->
